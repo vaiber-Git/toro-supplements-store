@@ -1,0 +1,72 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from 'firebase/auth';
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+} from 'firebase/firestore';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCGv09esvazmauMi-OvSpmjO_UyKzPHrao",
+  authDomain: "toro-supplements.firebaseapp.com",
+  projectId: "toro-supplements",
+  storageBucket: "toro-supplements.firebasestorage.app",
+  messagingSenderId: "561838863818",
+  appId: "1:561838863818:web:5c8523ab09630fee614b33"
+};
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+
+//Google Provider Instance
+
+const googleProvider = new GoogleAuthProvider();
+
+googleProvider.setCustomParameters({
+    prompt : 'select_account'
+});
+
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+
+//Creating Firestore DB Instance
+
+export const firestoreDB = getFirestore();
+
+//
+
+export const createUserDocumentFromAuth = async (userAuth) => {
+
+    const userDocRef = doc(firestoreDB, 'users', userAuth.uid);
+    //console.log(userDocRef);
+    const userSnapshot = await getDoc(userDocRef);
+    
+    
+    if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (error) {
+      console.log('error creating the user', error.message);
+    }
+  }
+
+  return userDocRef;
+} 
