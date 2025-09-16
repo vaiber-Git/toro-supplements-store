@@ -6,7 +6,7 @@ import { CartDropdownStateContext } from '../../context/cart-dropdown.context';
 
 const CartIcon = () => {
 
-    const {currentState, setCurrentState} = useContext(CartDropdownStateContext);
+    const {currentState, setCurrentState, cartItemsCount} = useContext(CartDropdownStateContext);
 
     const toggleCartDropdown = () => setCurrentState(!currentState);
 
@@ -14,7 +14,7 @@ const CartIcon = () => {
         <div className='cart-icon-container' onClick={toggleCartDropdown}>
             {/* <CartIconLogo className='shopping-bag-icon'/> */}
             <img src={CartIconLogo} className='shopping-bag-icon'/>
-            <span className='item-count'>10</span>
+            <span className='item-count'>{cartItemsCount}</span>
         </div>
         
 
