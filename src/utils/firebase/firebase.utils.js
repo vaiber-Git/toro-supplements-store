@@ -18,6 +18,9 @@ import {
     doc,
     getDoc,
     setDoc,
+    collection,
+    getDocs,
+    query,
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -98,3 +101,17 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 export const signOutUser = async () => await signOut(auth);  
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(firestoreDB, 'categories');
+  const queryObj = query(collectionRef);
+
+  const querySnapshot = await getDocs(queryObj);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+};
