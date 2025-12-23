@@ -1,6 +1,6 @@
 const API = (message) => {
 
-    const response = fetch ('http://136.113.93.41/chat', {
+    const response = fetch ('https://integrated-backend-api-prod.deltoro.shop/chat', {
                             method : 'post',
                             headers: {
                                 'Content-Type': 'application/json'
