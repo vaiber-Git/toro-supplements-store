@@ -1,6 +1,7 @@
 const API = (message) => {
 
-    const response = fetch ('https://integrated-backend-api-prod.deltoro.shop/chat', {
+    const apiChatBotEndpoint = process.env.API_CHAT_BOT_ENDPOINT;
+    const response = fetch (apiChatBotEndpoint, {
                             method : 'post',
                             headers: {
                                 'Content-Type': 'application/json'
