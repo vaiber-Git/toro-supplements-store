@@ -99,12 +99,12 @@ API_CHAT_BOT_ENDPOINT
 
 ## 🖼️ Screenshots
 ```
-![Home](https://i.ibb.co/qMJ7Cd0t/Home.png)
-![ChatBot](https://i.ibb.co/Fky6Y8c7/Chat-Bot.png)
-![Cart](https://i.ibb.co/STsKjfx/Shop-page-Cart.png)
-![Auth](https://i.ibb.co/QS6qXwc/Auth.png)
-![SignIn](https://i.ibb.co/h1g9ZNDq/Google-Sign-In.png)
-![Checkout](https://i.ibb.co/TxZC3xTw/Checkout.png)
+![alt text](https://i.ibb.co/qMJ7Cd0t/Home.png)
+![alt text](https://i.ibb.co/Fky6Y8c7/Chat-Bot.png)
+![alt text](https://i.ibb.co/STsKjfx/Shop-page-Cart.png)
+![alt text](https://i.ibb.co/QS6qXwc/Auth.png)
+![alt text](https://i.ibb.co/h1g9ZNDq/Google-Sign-In.png)
+![alt text](https://i.ibb.co/TxZC3xTw/Checkout.png)
 
 ```
 
