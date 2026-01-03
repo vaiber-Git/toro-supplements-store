@@ -1,6 +1,6 @@
 const API = (message) => {
 
-    const apiChatBotEndpoint = process.env.API_CHAT_BOT_ENDPOINT;
+    const apiChatBotEndpoint = import.meta.env.VITE_API_CHAT_BOT_ENDPOINT;
     const response = fetch (apiChatBotEndpoint, {
                             method : 'post',
                             headers: {
